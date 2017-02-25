@@ -1,0 +1,62 @@
+<div ng-init=" showUser() ;  getUsers(); showTopic(); getPosts();">
+    <a href="#!/dashboard">Dashboard</a> <button ng-click='logout()'>Logout</button>
+    <h1>Hi {{thisUser.first_name}}  {{thisUser.last_name}}</h1>
+
+    <div>
+
+
+        <h3>Topic creator: <span ng-bind="username"></span></h3>
+        <h5>Topic: <span ng-bind="thisTopic.topic"></span></h5>
+        <p>Description: <span ng-bind="thisTopic.description"></span></p>
+
+
+
+
+        <h3>Make a Post</h3>
+        <form ng-submit="createPost()">
+
+            <textarea ng-model="post.postedText" type="text" rows="8" cols="80"></textarea>
+            <input class="btn" type="submit" value="Post">
+        </form>
+
+        <h3>Posts:</h3>
+        <div ng-repeat="post in posts | filter: getUserPosts | orderBy:'-rank'">
+            <span ng-bind="getPostUser(post.postedBy)"></span>
+            <span>Post Ranking: <span ng-bind="post.rank" ></span></span><br>
+            <span>Rank this post:
+            <button type="button" ng-click="addRank(post)">up</button>
+            <button type="button" ng-click="rmvRank(post)">down</button>
+            </span>
+            
+            <p>
+                Posted by:
+                <span ng-bind="post.username"></span><br> Post: <span ng-bind="post.postedText"></span><br>
+                
+            </p>
+            <a ng-click="deletePost(post)">delete</a>
+                <span ng-bind="post._id"></span>
+            <h3>Comments Section:</h3>
+            <div>
+          
+                <form ng-submit="createComment(post._id)">
+
+                    <textarea ng-model="newComment.commentText" type="text" rows="8" cols="80" placeholder="Make a comment..." required></textarea>
+                    <input class="btn" type="submit" value="Comment">
+                </form>
+
+
+            </div>
+            <h6>More comments:</h6>
+            <p ng-repeat="comment in post.comments">
+                <span ng-bind="getCommentedBy(comment.commentedBy)"></span> Name:
+                <span ng-bind="comment.commentedByName"></span><br> Comment:
+
+                <span ng-bind="comment.commentText"></span><br>
+                <a ng-click="deleteComment(post, comment, $index)">delete</a>
+
+
+            </p>
+
+        </div>
+    </div>
+</div>

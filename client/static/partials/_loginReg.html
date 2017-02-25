@@ -1,0 +1,31 @@
+<div>
+    <form ng-model="registration" ng-submit="register()">
+
+        <label for="">NAME:</label> <input type="text" ng-model="registration.first_name" placeholder="first name">
+
+        <input type="text" ng-model="registration.last_name" placeholder="last name"> {{errors.first_name.message}} {{errors.last_name.message}}
+        <br>
+
+        <label for="">EMAIL:</label> <input type="email" ng-model="registration.email" placeholder="email"> {{errors.email.message}}
+        <br>
+
+        <label for="">PASSWORD:</label>
+        <input type="password" ng-model="registration.password" placeholder="password" value="q123456Q!">
+        <input type="password" ng-model="registration.confirm_password" placeholder="confirm password"  > {{errors.password.message}}
+        <br>
+        <label for="">BIRTHDAY:</label>
+        <input type="date" ng-model="registration.birthday"> {{errors.birthday.message}}
+        <input class="btn" type="submit" value="register">
+    </form>
+
+
+    </br>
+    <br>
+    <label for="">LOGIN:</label>
+    <form ng-model="userLogin" ng-submit="login()">
+
+        <input type="email" ng-model="userLogin.email" placeholder="email"><br>
+        <input type="password" ng-model="userLogin.password" placeholder="password"> {{errors.login_reg.message}}
+        <input class="btn" type="submit" value="login">
+    </form>
+</div>

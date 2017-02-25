@@ -1,0 +1,50 @@
+<div ng-init = " getUsers(); showUser(); getTopics()" >
+  <a href="#!/dashboard">Dashboard</a>   <button ng-click='logout()'>Logout</button>
+  <h1>Welcome {{thisUser.first_name}}  {{thisUser.last_name}}</h1>
+  <table>
+          <thead>
+            <tr> </tr>
+             <tr>
+                <th>Category</th>
+                <th>Topic</th>
+                <th>User Name</th>
+                <th>Posts</th>
+                <th>Delete</th>
+             </tr>
+          </thead>
+          <tbody ng-repeat="topic in topics">
+            <tr ng-bind="getUserName(topic.createdBy)"></tr>
+             <tr>
+            
+               <td ng-bind="topic.category.option"></td>
+                <td><a href="#!/topic/{{topic._id}}" ng-bind="topic.topic"></a></td>
+                <td > <a href="#!/user/{{topic.createdBy}}" ng-bind="topic.username"></a></td>
+                <td ng-bind="topic.posts.length"></td>
+                <!--When the button is clicked, run the delete function-->
+                <td><button class="btn" ng-click="delete(topic, $index)">Remove Topic</button></td>
+             </tr>
+          </tbody>
+       </table>
+
+<div>
+    <h3>Add a Topic</h3>
+    <form ng-submit="createTopic()">
+      <label>Topic</label>
+        <input type="text" ng-model="topic.topic">
+        <label>Description</label>
+        <textarea ng-model="topic.description" type="text" rows="8" cols="80"></textarea>
+        <select ng-model="topic.category" ng-options="category.option for category in categories">
+            <option value="">-- Choose Category --</option>
+       </select>
+        
+        <input class="btn" type="submit" value="Create">
+    </form>
+
+</div>
+
+
+  
+        
+</div>
+
+</div>

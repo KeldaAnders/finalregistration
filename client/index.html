@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='tokenizer'>
+<!-- ng-app is like telling the browser, 'Hey, this element and all of its children are now under the purview of Angular!' For that reason, we usually add ng-app to the <html> tag. -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Discussion Board</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <script src='angular/angular.js'></script>
+    <script src='angular-route/angular-route.js'></script>
+    <!-- <script src = 'angular-cookies/angular-cookies.js'></script> -->
+    <script src='static/js/config/routes.js'></script>
+    
+    <script src="static/js/services/auth.js" charset="utf-8"></script>
+    <script src="static/js/services/user_service.js" charset="utf-8"></script>
+    
+    <script src='static/js/controllers/userController.js'></script>
+    <script src='static/js/controllers/topicController.js'></script>
+    
+    <script src="static/js/factories/authinterceptor.js" charset="utf-8"></script>
+    <script src='static/js/factories/userFactory.js'></script>
+      <script src='static/js/factories/topicFactory.js'></script>
+    <!-- <script src='static/js/factories/postFactory.js'></script>
+    <script src='static/js/factories/commentFactory.js'></script> -->
+
+
+</head>
+
+<body>
+
+        
+        <div ng-view=""></div>
+
+
+</body>
+
+</html>
