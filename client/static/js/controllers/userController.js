@@ -10,7 +10,7 @@ angular.module('tokenizer')
             userFactory.register($scope.registration, function(response) {
                 if (response.data.success ) {
                     console.log("create success end", response);
-                    $location.url('/dashboard');
+                    $location.url('/home');
                 } else {
                     $scope.errors = response.data.error.errors;
                     console.log(response.data.error.errors);
@@ -29,7 +29,7 @@ angular.module('tokenizer')
                     if (response.data.success ){
                         $scope.user = response.data.token;
                         console.log(response.data.token, '=====Token');
-                        $location.url('/dashboard');
+                        $location.url('/home');
                     } else {
                         $scope.errors = response.data.errors;
                         console.log(response.data);
