@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     bcrypt = require('bcryptjs');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/discussionBoardI');
+mongoose.connect('mongodb://localhost/meanII');
 
 mongoose.connection.on('connected', function() {
     console.log('Database connected');

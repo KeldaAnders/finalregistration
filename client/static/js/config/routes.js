@@ -1,4 +1,4 @@
-////  inject the ngRoute dependency in the module.
+
 angular.module('tokenizer', ['ngRoute'])
     .config(['$httpProvider', '$routeProvider',
         function($httpProvider, $routeProvider) {
@@ -9,18 +9,10 @@ angular.module('tokenizer', ['ngRoute'])
                     controller: 'UsersController',
                     templateUrl: 'static/partials/_loginReg.html'
                 })
-                .when('/dashboard', {
-                    controller: 'TopicController',
-                    templateUrl: 'static/partials/_dashboard.html'
-                })
-                .when('/user/:id', {
-                    controller: 'TopicController',
-                    templateUrl: 'static/partials/_userWall.html'
-                })
-                .when('/topic/:id', {
-                    controller: 'TopicController',
-                    templateUrl: 'static/partials/_topicWall.html'
-                })
+                .when('/home', {
+                    controller: 'UsersController',
+                    templateUrl: 'static/partials/_home.html'
+               })
                 .otherwise({
                     redirectTo: '/'
                 });

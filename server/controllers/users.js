@@ -139,66 +139,7 @@ module.exports = {
                 });
             });
     },
-    newTopic(req, res) {
-        console.log(req.body, '**********-- BODY --**********');
-        User.findById(req.body.createdBy)
-            .then(function(user) {
-                user.topics.push(req.body);
-                user.save(function() {
-                    res.json({
-                        success: true,
-                        user
-                    });
-                })
-            })
-
-        .catch(errHandler.bind(res));
-    },
-    
-    removeTopic(req, res) {
-        console.log(req.body._id, 'body - remove topic from User');
-        console.log(req.params.id, 'req.params.id - remove topic from User');
-        User.findById(req.params.id)
-            .then(function(user) {
-                user.topics.pull(req.body._id);
-                user.save(function() {
-                    res.json({
-                        success: true,
-                        user
-                    });
-                })
-            })
-            .catch(errHandler.bind(res));
-    },
-    newPost(req, res) {
-        User.findById(req.body.postedBy)
-            .then(function(user) {
-                user.posts.push(req.body);
-                user.save(function() {
-                    res.json({
-                        success: true,
-                        user
-                    });
-                })
-            })
-
-        .catch(errHandler.bind(res));
-    },
-
-    removePost(req, res) {
-        console.log(req.body, 'body');
-        User.findById(req.params.id)
-            .then(function(user) {
-                user.posts.pull(req.body._id);
-                user.save(function() {
-                    res.json({
-                        success: true,
-                        user
-                    });
-                })
-            })
-            .catch(errHandler.bind(res));
-    },
+  
 
 
 };

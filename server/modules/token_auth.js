@@ -6,16 +6,6 @@ module.exports.verify = function(request, response, next) {
   if(token) {
     jwt.verify(token, request.app.get('token_secret'), function(error, decoded) {
       if (error) {
-        // Various ERROR types
-        // TokenExpiredError => 'jwt expired',
-        // JsonWebTokenError => 'jwt malformed'
-        //                   => 'jwt signature is required'
-        //                   => 'invalid signature'
-        //                   => 'jwt audience invalid. expected: [OPTIONS AUDIENCE]'
-        //                   => 'jwt issuer invalid. expected: [OPTIONS ISSUER]'
-        //                   => 'jwt id invalid. expected: [OPTIONS JWT ID]'
-        //                   => 'jwt subject invalid. expected: [OPTIONS SUBJECT]'
-
         return next(new Error(`There was an error verifying the token: ${error}`));
       }
 

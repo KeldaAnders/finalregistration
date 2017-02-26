@@ -1,0 +1,14 @@
+<div ng-init = " getUsers(); showUser();" >
+  <a href="#!/dashboard">Dashboard</a>   <button ng-click='logout()'>Logout</button>
+  <h1>Welcome {{thisUser.first_name}}  {{thisUser.last_name}}</h1>
+  <h2>USERS:</h2>
+  <div ng-repeat="user in users">
+
+    <p>
+        <span ng-bind="user.first_name"></span>
+        <span ng-bind="user.last_name"></span>
+    </p>
+    <p ng-bind="user.email"></p>
+
+
+</div>

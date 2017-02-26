@@ -74,20 +74,6 @@ var UsersSchema = new Schema({
             message: "birthday must be a valid birthday",
         }
     },
-
-    posts: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Post'
-    }],
-    comments: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Post'
-    }],
-    topics: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Topic'
-    }],
-
 }, {
     timestamps: {
         createdAt: 'created_at',
