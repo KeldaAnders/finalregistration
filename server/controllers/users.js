@@ -1,6 +1,6 @@
 const User = require("mongoose").model('User');
 const path = require('path');
-const sign = require(path.resolve('server', 'modules', 'token_Auth')).sign;
+const sign = require(path.resolve('server', 'modules', 'token_auth')).sign;
 var bcrypt = require('bcryptjs');
 
 module.exports = {
