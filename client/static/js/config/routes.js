@@ -10,7 +10,7 @@ angular.module('tokenizer', ['ngRoute'])
                     templateUrl: 'static/partials/_loginReg.html'
                 })
                 .when('/home', {
-                    controller: 'UsersController',
+                    controller: 'HomeController',
                     templateUrl: 'static/partials/_home.html'
                })
                 .otherwise({
