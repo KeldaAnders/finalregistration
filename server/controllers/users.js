@@ -139,15 +139,31 @@ module.exports = {
                 });
             });
     },
+    
+    
+    newquestion(req, res) {
+        console.log(req.body, '**********-- BODY --**********');
+        User.findById(req.body.createdBy)
+            .then(function(user) {
+                user.questions.push(req.body);
+                user.save(function() {
+                    res.json({
+                        success: true,
+                        user
+                    });
+                })
+            })
+
+            .catch(function errorHandler(error) {
+                console.error(error)
+                res.json({
+                    success: false,
+                    error
+                });
+            });
+    }
   
 
 
 };
 
-function errHandler(error, res) {
-    console.error(error)
-    res.json({
-        success: false,
-        error
-    });
-}

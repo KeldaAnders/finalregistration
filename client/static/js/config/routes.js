@@ -13,6 +13,18 @@ angular.module('tokenizer', ['ngRoute'])
                     controller: 'HomeController',
                     templateUrl: 'static/partials/_home.html'
                })
+               .when('/new_question', {
+                   controller: 'QuestionController',
+                   templateUrl: 'static/partials/_new_question.html'
+              })
+              .when('/question/:id/new_answer', {
+                  controller: 'QuestionController',
+                  templateUrl: 'static/partials/_new_answer.html'
+             })
+              .when('/question/:id', {
+                  controller: 'QuestionController',
+                  templateUrl: 'static/partials/_question.html'
+             })
                 .otherwise({
                     redirectTo: '/'
                 });

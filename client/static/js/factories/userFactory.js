@@ -47,66 +47,20 @@ angular.module('tokenizer')
         };
 
 
-        //Remove the user from the list
-        factory.delete = function(user, callback) {
-            // console.dir(user);
-            $http.delete('/users/' + user._id)
-                .then(function(response) {
-                    if (response.data.success) {
-                        console.log(response.data, 'res');
-                        callback(response.data)
-                    }
-                })
-                .catch(handleErrors);
+      ///////////////////// Question section ////////////////////////
+      
+    
+      factory.updateUserquestion = function(postObj, callback) {
+        // console.log(postObj, 'post Object');
+        $http.put('/usersquestion', postObj)
+            .then(function(response) {
+                if (response.data.success) {
+                    console.log('success=============', response.data);
+                    callback(response.data)
+                }
+            })
+    };
 
-        };
-
-        ///////////////////// User's Topic ////////////////////////
-        factory.updateUserTopic = function(postObj, callback) {
-            // console.log(postObj, 'post Object');
-            $http.put('/userstopic', postObj)
-                .then(function(response) {
-                    if (response.data.success) {
-                        console.log('success=============', response.data);
-                        callback(response.data)
-                    }
-                })
-        };
-        factory.deleteTopic = function(topic, callback) {
-            console.log(topic, '***** topic in USER Factory');
-            $http.put('/userstopic/' + topic.createdBy, topic)
-                .then(function(response) {
-                    if (response.data.success) {
-                        console.log(response.data, 'res');
-                        callback(response.data)
-                    }
-                })
-                .catch(handleErrors);
-
-        };
-        ///////////////////// User's Post ////////////////////////
-        factory.updateUserPost = function(postObj, callback) {
-            // console.log(postObj, 'post Object');
-            $http.put('/userspost', postObj)
-                .then(function(response) {
-                    if (response.data.success) {
-                        console.log('success=============', response.data);
-                        callback(response.data)
-                    }
-                });
-        };
-        factory.deletePost = function(post, callback) {
-            console.log(post, '***** post');
-            $http.put('/userspost/' + post.postedBy, post)
-                .then(function(response) {
-                    if (response.data.success) {
-                        console.log(response.data, 'res');
-                        callback(response.data)
-                    }
-                })
-                .catch(handleErrors);
-
-        };
         
     
               

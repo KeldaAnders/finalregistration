@@ -13,7 +13,6 @@ var UsersSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-        lowercase: true,
         minLength: 1,
         validate: {
             validator: function(name) {
@@ -26,7 +25,6 @@ var UsersSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-        lowercase: true,
         minLength: 1,
         validate: {
             validator: function(name) {
@@ -47,33 +45,16 @@ var UsersSchema = new Schema({
             message: "Please enter a valid email",
         },
     },
-    password: {
-        type: String,
-        required: true,
-        trim: true,
-        minLength: 8,
-        validate: {
-            validator: function(password) {
-                return passwordRegex.test(password)
-            },
-            message: "Password must be at least 8 characters long with at least 1 uppercase letter and 1 number",
-        }
-    },
-    birthday: {
-        type: Date,
-        required: true,
-        validate: {
-            validator: function(birthday) {
-              today =  new Date();
-              if (birthday < today ){
-                return true;
-              }else{
-                return false;
-              }
-            },
-            message: "birthday must be a valid birthday",
-        }
-    },
+  
+
+    questions: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Question'
+    }],
+    answers: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Question'
+    }],
 }, {
     timestamps: {
         createdAt: 'created_at',
